@@ -1,18 +1,54 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.longyg.docxbrowser</id>
-    <name>docx-browser Template</name>
-    <vendor>longyg</vendor>
+    <id>com.yglong.plugin.intellij.DocxBrowser</id>
+    <name>Docx Browser</name>
+    <version>1.0.0</version>
+    <vendor email="longyg1986@163.com" url="https://www.yglong.com">yglong</vendor>
+
+    <description>
+        <![CDATA[
+          This is a plugin to browse content of word (i.e., docx) file, also can edit the content and save as word.
+        ]]>
+    </description>
 
     <depends>com.intellij.modules.platform</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.longyg.docxbrowser.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <postStartupActivity implementation="com.yglong.plugin.intellij.DocBrowserStartupActivity" order="first"/>
+
+        <projectService id="docxbrowser.DocBrowserToolWindowService"
+                        serviceInterface="com.yglong.plugin.intellij.service.DocBrowserToolWindowService"
+                        serviceImplementation="com.yglong.plugin.intellij.service.impl.DocBrowserToolWindowServiceImpl"/>
+
+        <toolWindow factoryClass="com.yglong.plugin.intellij.DocBrowserToolWindowFactory"
+                    id="Docx Browser" secondary="true" icon="DocBrowserIcons.TOOL_WINDOW_ICON"
+                    order="last" anchor="right"/>
+
+        <virtualFileSystem
+                implementationClass="com.yglong.plugin.intellij.file.DocxFileSystem"
+                key="docx"/>
+
+        <notificationGroup displayType="BALLOON" id="Docx Browser"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.longyg.docxbrowser.listeners.MyFrameStateListener" topic="com.intellij.ide.FrameStateListener"/>
+        <listener class="com.yglong.plugin.intellij.listener.DocBrowserAppLifecycleListener"
+                  topic="com.intellij.ide.AppLifecycleListener"/>
+        <listener class="com.yglong.plugin.intellij.listener.DocBrowserFileListener"
+                  topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"/>
     </applicationListeners>
+
+    <projectListeners>
+        <listener class="com.yglong.plugin.intellij.listener.DocBrowserEditorListener"
+                  topic="com.intellij.openapi.fileEditor.FileEditorManagerListener"/>
+    </projectListeners>
+
+    <actions>
+        <group id="DocxBrowser.Toolbar">
+            <action id="docxbrowser.OpenDocxAction" class="com.yglong.plugin.intellij.actions.OpenDocxAction"/>
+            <action id="docxbrowser.SaveDocxAction" class="com.yglong.plugin.intellij.actions.SaveDocxAction"/>
+        </group>
+    </actions>
 </idea-plugin>
