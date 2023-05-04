@@ -1,4 +1,4 @@
-package com.yglong.plugin.intellij;
+package com.yglong.plugin.intellij.toolwindow;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;

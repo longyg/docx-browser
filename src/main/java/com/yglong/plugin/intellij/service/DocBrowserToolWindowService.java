@@ -1,5 +1,6 @@
 package com.yglong.plugin.intellij.service;
 
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.openapi.wm.ToolWindow;
@@ -19,7 +20,7 @@ public interface DocBrowserToolWindowService {
     }
 
     default void init(@NotNull ToolWindow toolWindow) {
-        ContentFactory contentFactory = ContentFactory.getInstance();
+        ContentFactory contentFactory = ApplicationManager.getApplication().getService(ContentFactory.class);
         Content content = contentFactory.createContent(getContent(), "", false);
         toolWindow.getContentManager().addContent(content);
     }

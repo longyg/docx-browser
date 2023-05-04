@@ -3,13 +3,21 @@
     <id>com.yglong.plugin.intellij.DocxBrowser</id>
     <name>Docx Browser</name>
     <version>1.0.0</version>
-    <vendor email="longyg1986@163.com" url="https://www.yglong.com">yglong</vendor>
+    <vendor email="longyg1986@163.com" url="https://www.yglong.com">Yonggang Long</vendor>
 
     <description>
         <![CDATA[
-          This is a plugin to browse content of word (i.e., docx) file, also can edit the content and save as word.
+          <h3>Docx Browser</h3>
+          <p> This plugin provide features to browse the xml file content inside a Word document. Note that currently only the Word file with .docx extension is supported.</p>
+          <p> You can edit the xml file content, then preview the modified Word document. Finally, you can save modified content to original Word document.</p>
         ]]>
     </description>
+
+    <change-notes>
+        <![CDATA[
+        <li>v1.0.0: first version</li>
+        ]]>
+    </change-notes>
 
     <depends>com.intellij.modules.platform</depends>
 
@@ -22,7 +30,7 @@
                         serviceInterface="com.yglong.plugin.intellij.service.DocBrowserToolWindowService"
                         serviceImplementation="com.yglong.plugin.intellij.service.impl.DocBrowserToolWindowServiceImpl"/>
 
-        <toolWindow factoryClass="com.yglong.plugin.intellij.DocBrowserToolWindowFactory"
+        <toolWindow factoryClass="com.yglong.plugin.intellij.toolwindow.DocBrowserToolWindowFactory"
                     id="Docx Browser" secondary="true" icon="DocBrowserIcons.TOOL_WINDOW_ICON"
                     order="last" anchor="right"/>
 

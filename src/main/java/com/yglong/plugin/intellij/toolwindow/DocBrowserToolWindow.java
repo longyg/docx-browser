@@ -41,7 +41,7 @@ public class DocBrowserToolWindow extends JPanel {
         AnAction action = ActionManager.getInstance().getAction("DocxBrowser.Toolbar");
         actionToolbar = ActionManager.getInstance().createActionToolbar(
                 ActionPlaces.TOOLBAR,
-                action instanceof ActionGroup actionGroup ? actionGroup : new DefaultActionGroup(),
+                action instanceof ActionGroup ? (ActionGroup) action : new DefaultActionGroup(),
                 true
         );
         actionToolbar.setTargetComponent(this);

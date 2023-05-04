@@ -90,18 +90,14 @@ public class SubFile implements NodeData {
 
     public Icon getIcon() {
         switch (getFileType()) {
-            case REL -> {
+            case REL:
                 return AllIcons.FileTypes.Manifest;
-            }
-            case XML -> {
+            case XML:
                 return AllIcons.FileTypes.Xml;
-            }
-            case IMAGE -> {
+            case IMAGE:
                 return AllIcons.FileTypes.Diagram;
-            }
-            default -> {
+            default:
                 return AllIcons.FileTypes.Any_type;
-            }
         }
     }
 

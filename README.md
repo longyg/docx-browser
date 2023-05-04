@@ -1,8 +1,11 @@
-# docx-browser
+# Docx Browser
 
 ![Build](https://github.com/longyg/docx-browser/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
+[![Version](https://img.shields.io/jetbrains/plugin/v/21616-docx-browser.svg)](https://plugins.jetbrains.com/plugin/21616-docx-browser)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/21616-docx-browser.svg)](https://plugins.jetbrains.com/plugin/21616-docx-browser)
+
+This plugin provide features to browse the xml file content inside a Word document. Note that currently only the Word file with .docx extension is supported.
+You can edit the xml file content, then preview the modified Word document. Finally, you can save modified content to original Word document.
 
 ## Template ToDo list
 - [x] Create a new [IntelliJ Platform Plugin Template][template] project.
@@ -28,7 +31,7 @@ To keep everything working, do not remove `<!-- ... -->` sections.
 
 - Using IDE built-in plugin system:
   
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "docx-browser"</kbd> >
+  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "Docx Browser"</kbd> >
   <kbd>Install Plugin</kbd>
   
 - Manually:

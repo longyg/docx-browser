@@ -89,9 +89,11 @@ public class DocBrowserTree extends JBScrollPane {
     private void openTreePath(TreePath treePath) {
         if (null == treePath) return;
         Object selectedNode = treePath.getLastPathComponent();
-        if (selectedNode instanceof DefaultMutableTreeNode treeNode) {
+        if (selectedNode instanceof DefaultMutableTreeNode) {
+            DefaultMutableTreeNode treeNode = (DefaultMutableTreeNode) selectedNode;
             Object userObject = treeNode.getUserObject();
-            if (userObject instanceof SubFile subFile) {
+            if (userObject instanceof SubFile) {
+                SubFile subFile = (SubFile) userObject;
                 openSelectedSubFile(subFile);
             }
         }
@@ -194,9 +196,11 @@ public class DocBrowserTree extends JBScrollPane {
     }
 
     private TreePath findPath(DefaultMutableTreeNode node, VirtualFile file) {
-        if (node instanceof FileNode fileNode) {
+        if (node instanceof FileNode) {
+            FileNode fileNode = (FileNode) node;
             Object userObject = fileNode.getUserObject();
-            if (userObject instanceof SubFile subFile) {
+            if (userObject instanceof SubFile) {
+                SubFile subFile = (SubFile) userObject;
                 File tempFile = subFile.getTempFile();
                 VirtualFile virtualFile = LocalFileSystem.getInstance().findFileByIoFile(tempFile);
                 if (null != virtualFile && virtualFile.equals(file)) {
